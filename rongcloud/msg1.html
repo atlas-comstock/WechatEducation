@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Cache" content="no-cache" />
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.9.min.js"></script>
+<title>融云ANDROID WEBVIEW 兼容性测试</title>
+<script>
+	window.onerror = function(msg, url, line) {
+
+		var idx = new String(url).lastIndexOf("/");
+		if (idx > -1) {
+			url = url.substring(idx + 1);
+		}
+		alert("ERROR in " + url + " (line #" + line + "): " + msg);
+		return false;
+	};
+	var logined=false;
+	window.onload = function() {
+		alert((function (global) {
+	        if ('navigator' in global && 'plugins' in navigator && navigator.plugins['Shockwave Flash']) {
+	            return !!navigator.plugins['Shockwave Flash'].description;
+	        }
+	        if ('ActiveXObject' in global) {
+	            try {
+	                return !!new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version');
+	            } catch (e) {
+	            }
+	        }
+	        return false;
+	    })(window));
+
+		alert("WebSocket" in window && "ArrayBuffer" in window);
+		alert(navigator.userAgent );
+		/*处理消息服务*/
+		RongIMClient.init("kj7swf8o7csz2");//初始化
+
+	
+
+		RongIMClient.getInstance().setOnReceiveMessageListener(
+				{//消息监听
+					// 接收到的消息
+					onReceived : function(message) {
+						document.getElementById("msgDiv").innerHTML += message
+								.getContent()
+								+ "<br>";
+					},
+					onError : function(errorCode) {
+						console.log("ERROR CODE:" + errorCode);
+					}
+				});
+
+	
+		RongIMClient.setConnectionStatusListener({//连接状态监听
+			onChanged : function(status) {
+				//console.log(" Connection Status::" + status);
+			}
+		});
+
+		var token="mFDknbjLhcM3eoXbG9aMV6nr3XhPzf73ZRDsc8CNaGcJLhpIsiwlgm2np92SDA0izW7CcDKgQNA=";
+		//var token ="你的TOKEN";
+		RongIMClient.connect(token, {//连接
+			onSuccess : function(userId) {
+				if(!logined){
+					console.log(userId + " logined....");
+					logined=true;
+				}
+				alert("成功" + userId);
+			},
+			onError : function(errorCode) {
+				alert("连接通讯服务器失败，错误码：" + errorCode + "\n单击确定按钮退出程序！");
+			}
+		});
+
+		//
+		ins = RongIMClient.getInstance();
+        var c = document.getElementById("content"), to = document.getElementById("target"), s = document.getElementById("send"), t = document.getElementById("type");
+        s.onclick = function () {
+            var con = RongIMClient.ConversationType.setValue(t.value);
+            ins.sendMessage(con, to.value, RongIMClient.TextMessage.obtain(c.value || Date.now()), null, {
+                onSuccess: function () {
+                    console.log("send successfully");
+                    c.value = (c.value * 1 + 1);
+                }, onError: function () {
+                    console.log("send fail")
+                }
+            });
+        }
+		/*消息服务结束*/
+	};
+	//},false);
+</script>
+
+</head>
+<body style="width:100%;height:100%;">
+<div id="expImgs" style="width:100%;height:5%;background-color:#ccc;">
+
+</div>
+	<!-- <div id="msgDiv"
+		style="width:100%;height:95%;color:red;font-size:20px;background-color:#ccc;"></div> -->
+				<div style="margin: 10px 10px">
+    content:<input id="content" type="text" style="width: 80%;" value="1">
+</div>
+<div style="margin: 10px 10px">
+    send to:<input type="text" id="target" style="margin-right: 50px" value="TARGETID">type:<select id="type"
+                                                                                                    style="margin-right: 50px">
+    <option value="4" selected>私聊</option>
+    <option value="1">客服</option>
+    <option value="0">聊天室</option>
+    <option value="2">讨论组</option>
+    <option value="3">群组</option>
+</select>
+    <button id="send">send</button>
+</div>
+
+<div id="msgDiv" style="width: 100%;height: 200px;background-color: oldlace;overflow-y: auto">
+
+</div>
+<div id="cons">
+
+</div>
+</body>
+</html>

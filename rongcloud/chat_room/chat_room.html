@@ -1,0 +1,104 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Amaze UI Examples</title>
+  <!-- Set render engine for 360 browser -->
+  <meta name="renderer" content="webkit">
+
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+  <link rel="stylesheet" href="assets/css/amazeui.flat.min.css">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/room.css">
+</head>
+<body>
+
+<!--头部-->
+<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+  <div class="am-header-left am-header-nav">
+    <a href="#left-link" class="">
+		返回
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">{聊天室名称}</a>
+  </h1>
+</header>
+<!--头部end-->
+<!-- 聊天内容-->
+<div class="am-scrollable-vertical content_list">
+	<article class="am-comment">
+		<!--左评论-->
+		<li>
+		<a href="#link-to-user-home">
+			<img src="" alt="" class="am-comment-avatar user_head"/>
+		</a>
+		<div class="am-comment-main content_frame">
+			<div class="am-comment-meta content-detail">
+					<a href="#link-to-user" class="am-comment-author">某人</a> 评论于
+					<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+			</div>
+			<div class="am-comment-bd">
+				nimei评论pinglun评论
+			</div>
+		</div>
+		</li>
+		<!--/*
+		 *左评论样式
+		 */-->
+		 <!--
+		<li class="am-comment-flip">
+		<a href="#link-to-user-home">
+			<img src="" alt="" class="am-comment-avatar user_head"/>
+		</a>
+		<div class="am-comment-main content_frame">
+			<div class="am-comment-meta content-detail">
+					<a href="#link-to-user" class="am-comment-author">某人</a> 评论于
+					<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+			</div>
+			<div class="am-comment-bd">
+				pinglun评论pinglun评论
+			</div>
+		</div>
+		</li>
+		<!--/*
+		 *右评论样式
+		 */-->右评论-->
+	</article>
+</div>
+<!--聊天内容over-->
+<!--底部-->
+<footer data-am-widget="footer" class="room_footer room_footer_fixed">
+	<div class="am-g">
+		<div class="am-u-sm-9">
+			<input type="text" class="chat_box" name="content"></input>		
+		</div>
+		<div class="am-u-sm-2">
+			<button id="send" type="button" class="am-btn am-btn-success send_button">发送</button>
+		</div>
+		<div class="am-u-sm-1"></div>
+	</div>
+</footer>
+<!--底部over-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+</body>
+</html>

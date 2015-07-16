@@ -1,0 +1,51 @@
+body {
+	background: #f8f8ff;
+	min-height: 768px;
+	color: #000000;
+	text-align: center;
+	font-family: Helvetica;
+}
+h1 {
+	text-align: center;
+	margin: 80px auto 0 auto;
+}
+font {
+	color: brown;
+	font-weight: 800;
+}
+/*li {
+	line-height: 30px;
+}*/
+ul li{
+	margin: 0px;
+	padding: 0px;
+}
+#t_show {
+	/*border-bottom: 3px solid #000;*/
+	
+	text-decoration: underline;
+	width: 200px;
+	margin: 20px auto;
+	text-align: left;
+}
+.w_lin {
+	text-align: center;
+}
+.w_lin #w_total ul{
+	width: 160px;
+	margin: 20px auto;
+	text-align: left;
+}
+.i_total{
+	margin: 0 auto;
+	width: 160px;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: center;
+}
+.i_total ul li{
+	margin: 0 auto;
+	padding-left: auto;
+	padding-right: auto;
+	text-align: left;
+}

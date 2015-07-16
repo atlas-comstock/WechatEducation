@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+ <meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Cache" content="no-cache" />
+ <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+  <link rel="stylesheet" href="assets/css/amazeui.flat.min.css">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/room.css">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.9.min.js"></script>
+<title>融云ANDROID WEBVIEW 兼容性测试</title>
+
+<script>
+	window.onerror = function(msg, url, line) {
+
+		var idx = new String(url).lastIndexOf("/");
+		if (idx > -1) {
+			url = url.substring(idx + 1);
+		}
+		alert("ERROR in " + url + " (line #" + line + "): " + msg);
+		return false;
+	};
+	var logined=false;
+	window.onload = function() {
+		alert((function (global) {
+	        if ('navigator' in global && 'plugins' in navigator && navigator.plugins['Shockwave Flash']) {
+	            return !!navigator.plugins['Shockwave Flash'].description;
+	        }
+	        if ('ActiveXObject' in global) {
+	            try {
+	                return !!new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version');
+	            } catch (e) {
+	            }
+	        }
+	        return false;
+	    })(window));
+
+		alert("WebSocket" in window && "ArrayBuffer" in window);
+		alert(navigator.userAgent );
+		/*处理消息服务*/
+		RongIMClient.init("kj7swf8o7csz2");//初始化
+
+	
+
+		RongIMClient.getInstance().setOnReceiveMessageListener(
+				{//消息监听
+					// 接收到的消息
+					onReceived : function(message) {
+						document.getElementById("msgDiv").innerHTML += message
+								.getContent()
+								+ "<br>";
+					},
+					onError : function(errorCode) {
+						console.log("ERROR CODE:" + errorCode);
+					}
+				});
+
+	
+		RongIMClient.setConnectionStatusListener({//连接状态监听
+			onChanged : function(status) {
+				//console.log(" Connection Status::" + status);
+			}
+		});
+
+		var token="mFDknbjLhcM3eoXbG9aMV6nr3XhPzf73ZRDsc8CNaGcJLhpIsiwlgm2np92SDA0izW7CcDKgQNA=";
+		//var token ="你的TOKEN";
+		RongIMClient.connect(token, {//连接
+			onSuccess : function(userId) {
+				if(!logined){
+					console.log(userId + " logined....");
+					logined=true;
+				}
+				alert("成功" + userId);
+			},
+			onError : function(errorCode) {
+				alert("连接通讯服务器失败，错误码：" + errorCode + "\n单击确定按钮退出程序！");
+			}
+		});
+
+		//
+		ins = RongIMClient.getInstance();
+        var c = document.getElementById("content"), s = document.getElementById("send");
+        s.onclick = function () {
+            var con = RongIMClient.ConversationType.setValue("4");
+            var target = "2";
+            ins.sendMessage(con, target, RongIMClient.TextMessage.obtain(c.value || Date.now()), null, {
+                onSuccess: function () {
+                    console.log("send successfully");
+                    c.value = (c.value * 1 + 1);
+                }, onError: function () {
+                    console.log("send fail")
+                }
+            });
+        }
+		/*消息服务结束*/
+	};
+	//},false);
+</script>
+
+</head>
+
+
+<body style="width:100%;height:100%;">
+<div id="expImgs" style="width:100%;height:5%;background-color:#ccc;">
+
+</div>
+	<!-- <div id="msgDiv"
+		style="width:100%;height:95%;color:red;font-size:20px;background-color:#ccc;"></div> -->
+				<div style="margin: 10px 10px">
+</div>
+<div style="margin: 10px 10px">
+    <button id="send" type="button" class="am-btn am-btn-success send_button">发送</button>
+</div>
+
+<div id="msgDiv" style="width: 100%;height: 200px;background-color: oldlace;overflow-y: auto">
+
+    <footer data-am-widget="footer" class="room_footer room_footer_fixed">
+    <div class="am-g">
+        <div class="am-u-sm-9">
+            <input id="content" type="text" class="chat_box" name="content" ></input>
+        </div>
+        <div class="am-u-sm-2">
+        </div>
+        <div class="am-u-sm-1"></div>
+    </div>
+    </footer>
+
+
+</div>
+<div id="cons">
+
+</div>
+</body>
+</html>

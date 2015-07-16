@@ -1,0 +1,43 @@
+var verify = function() {
+    var user_name = document.getElementById("User_Name").value;
+    var user_pwd = document.getElementById("User_Pwd").value;
+    var user_type = document.getElementById("select_id").value;
+    var post_url = "index.php/bind/single_bind/"+user_name+'/'+user_pwd;
+    alert(post_url);
+    $.ajax({
+        url: 'index.php/bind/check_student_exist',
+        type: 'POST',
+        data: '/'+user_name+'/'+user_pwd,//+ user_name +'&pw='user_pwd,
+        success: function(data) {
+
+            $.ajax({
+                url: 'index.php/bind/single_bind',
+            type: 'POST',
+            data: '/'+user_name+'/'+user_pwd+'/'+user_type,//+ user_name +'&pw='user_pwd,
+            success: function(data) {
+                alert("Data Loaded success: " + data);
+            },
+            error: function(data) {
+                alert("post error" + data);
+            }
+            });
+            window.location.href='xx';
+            alert("success");
+        },
+        //called when successful
+        //	$('#ajaxphp-results').html(data);
+        error: function(data) {
+            alert("【账号】或者【密码】错误");
+            alert("返回的数据: " + data);
+            return false;
+            //called when there is an error
+            //console.log(e.message);
+        }
+    });
+    alert("inside 2");
+}
+
+var verify11 = function() {
+    alert("hi");
+
+}

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+ <meta http-equiv="Expires" content="0" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-control" content="no-cache" />
+<meta http-equiv="Cache" content="no-cache" />
+ <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <!-- No Baidu Siteapp-->
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="assets/i/app-icon72x72@2x.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+
+  <link rel="stylesheet" href="assets/css/amazeui.flat.min.css">
+  <link rel="stylesheet" href="assets/css/amazeui.min.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+  <link rel="stylesheet" href="assets/css/room.css">
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.9.min.js"></script>
+<title>融云ANDROID WEBVIEW 兼容性测试</title>
+<script>
+	window.onerror = function(msg, url, line) {
+
+		var idx = new String(url).lastIndexOf("/");
+		if (idx > -1) {
+			url = url.substring(idx + 1);
+		}
+		alert("ERROR in " + url + " (line #" + line + "): " + msg);
+		return false;
+	};
+	var logined=false;
+	window.onload = function() {
+		alert((function (global) {
+	        if ('navigator' in global && 'plugins' in navigator && navigator.plugins['Shockwave Flash']) {
+	            return !!navigator.plugins['Shockwave Flash'].description;
+	        }
+	        if ('ActiveXObject' in global) {
+	            try {
+	                return !!new ActiveXObject('ShockwaveFlash.ShockwaveFlash').GetVariable('$version');
+	            } catch (e) {
+	            }
+	        }
+	        return false;
+	    })(window));
+
+		alert("WebSocket" in window && "ArrayBuffer" in window);
+		alert(navigator.userAgent );
+		/*处理消息服务*/
+		RongIMClient.init("kj7swf8o7csz2");//初始化
+
+	
+
+		RongIMClient.getInstance().setOnReceiveMessageListener(
+				{//消息监听
+					// 接收到的消息
+					onReceived : function(message) {
+						document.getElementById("msgDiv").innerHTML += message
+								.getContent()
+								+ "<br>";
+					},
+					onError : function(errorCode) {
+						console.log("ERROR CODE:" + errorCode);
+					}
+				});
+
+	
+		RongIMClient.setConnectionStatusListener({//连接状态监听
+			onChanged : function(status) {
+				//console.log(" Connection Status::" + status);
+			}
+		});
+
+		var token="X6AIEfs1JSTWndcLQmeBSKnr3XhPzf73ZRDsc8CNaGcJLhpIsiwlgnGHinFr6bLkzW7CcDKgQNA";
+		//var token ="你的TOKEN";
+		RongIMClient.connect(token, {//连接
+			onSuccess : function(userId) {
+				if(!logined){
+					console.log(userId + " logined....");
+					logined=true;
+				}
+				alert("成功" + userId);
+			},
+			onError : function(errorCode) {
+				alert("连接通讯服务器失败，错误码：" + errorCode + "\n单击确定按钮退出程序！");
+			}
+		});
+
+		//
+		ins = RongIMClient.getInstance();
+        //var target = 2;
+        /// document.getElementById("target")  document.getElementById("type")
+        //var c = document.getElementById("content"), to = 2, s = document.getElementById("send"), t = 2;
+        var c = document.getElementById("content"), to = document.getElementById("target"), s = document.getElementById("send"), t = document.getElementById("type");
+
+        s.onclick = function () {
+            alert("in\n");
+            alert(t.value);
+            var con = RongIMClient.ConversationType.setValue(t.value);
+            alert(to.value);
+            ins.sendMessage(con, to.value, RongIMClient.TextMessage.obtain(c.value || Date.now()), null, {
+                onSuccess: function () {
+                    console.log("send successfully");
+                    c.value = (c.value * 1 + 1);
+                }, onError: function () {
+                    console.log("send fail")
+                }
+            });
+        }
+		/*消息服务结束*/
+	};
+	//},false);
+</script>
+
+
+</head>
+<body style="width:100%;height:100%;">
+<div id="expImgs" style="width:100%;height:5%;background-color:#ccc;">
+
+</div>
+<body>
+
+<!--头部-->
+<header data-am-widget="header" class="am-header am-header-default am-header-fixed">
+  <div class="am-header-left am-header-nav">
+    <a href="#left-link" class="">
+		返回
+    </a>
+  </div>
+  <h1 class="am-header-title">
+    <a href="#title-link" class="">{聊天室名称}</a>
+  </h1>
+</header>
+<!--头部end-->
+<!-- 聊天内容-->
+<div class="am-scrollable-vertical content_list">
+	<article class="am-comment">
+		<!--左评论-->
+		<li>
+		<a href="#link-to-user-home">
+			<img src="" alt="" class="am-comment-avatar user_head"/>
+		</a>
+		<div class="am-comment-main content_frame">
+			<div class="am-comment-meta content-detail">
+					<a href="#link-to-user" class="am-comment-author">某人</a> 评论于
+					<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+			</div>
+			<div id="msgDiv" class="am-comment-bd">
+				nimei评论pinglun评论
+			</div>
+		</div>
+		</li>
+		 *左评论样式
+		 */-->
+		 <!--
+		<li class="am-comment-flip">
+		<a href="#link-to-user-home">
+			<img src="" alt="" class="am-comment-avatar user_head"/>
+		</a>
+		<div class="am-comment-main content_frame">
+			<div class="am-comment-meta content-detail">
+					<a href="#link-to-user" class="am-comment-author">某人</a> 评论于
+					<time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+			</div>
+			<div class="am-comment-bd">
+				pinglun评论pinglun评论
+			</div>
+		</div>
+		</li>
+		<!--/*
+		 *右评论样式
+		 */-->右评论-->
+	</article>
+</div>
+<!--聊天内容over-->
+<!--底部-->
+<footer data-am-widget="footer" class="room_footer room_footer_fixed">
+	<div class="am-g">
+		<div class="am-u-sm-9">
+			<input type="text" class="chat_box" name="content"></input>
+		</div>
+            <button id="send">send</button>
+        <div style="margin: 10px 10px">
+            send to:<input type="text" id="target" style="margin-right: 50px" value="2">type:<select id="type"
+                style="margin-right: 50px">
+                <option value="4" selected>私聊</option>
+                <option value="1">客服</option>
+                <option value="0">聊天室</option>
+                <option value="2">讨论组</option>
+                <option value="3">群组</option>
+            </select>
+        </div>
+        </option>
+        <div class="am-u-sm-1"></div>
+    </div>
+    </footer>
+    <!--底部over-->
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="assets/js/jquery.min.js"></script>
+    <!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<![endif]-->
+</body>
+</html>

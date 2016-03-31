@@ -30,7 +30,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <script src="http://res.websdk.rongcloud.cn/RongIMClient-0.9.9.min.js"></script>
-<title>融云ANDROID WEBVIEW 兼容性测试</title>
+<title> <?php echo $groupId.$groupName; ?></title>
 
 <script>
 	window.onerror = function(msg, url, line) {
@@ -44,7 +44,7 @@
 	};
 	var logined=false;
 	window.onload = function() {
-		alert((function (global) {
+		((function (global) {
 	        if ('navigator' in global && 'plugins' in navigator && navigator.plugins['Shockwave Flash']) {
 	            return !!navigator.plugins['Shockwave Flash'].description;
 	        }
@@ -71,9 +71,15 @@
                         //alert(info .getPortraitUri());
                         //alert(info .getPortraitUri());
 				//		document.getElementById("msgDiv").innerHTML += message .getContent() + "<br>";
-                        document.getElementById("new_msg").innerHTML += '<article class="am-comment"> <li> <a href="#link-to-user-home"> <img src="<?php echo $user_image;?>" alt="" class="am-comment-avatar user_head"/> </a> <div class="am-comment-main content_frame"> <div class="am-comment-meta content-detail" style="overflow-y: auto"> <a href="#link-to-user" class="am-comment-author"><?php echo $user_stu_name; ?></a><time datetime="<?php echo time(); ?>" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">"<?php echo time(); ?>"</time> <br>' + message .getContent() + "</div></div> </li>";
-
-
+		    RongIMClient.getInstance().getUserInfo(message.getSenderUserId(),{
+                onSuccess:function(info){
+                    var name = info.getUserName();
+                    var url = info.getPortraitUri();
+                        document.getElementById("new_msg").innerHTML += '<article class="am-comment"> <li> <a href="#link-to-user-home"> <img src="'+url+'" alt="" class="am-comment-avatar user_head"/> </a> <div class="am-comment-main content_frame"> <div class="am-comment-meta content-detail" style="overflow-y: auto"> <a href="#link-to-user" class="am-comment-author">'+name+'</a><time datetime="<?php echo time(); ?>" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">"<?php  echo date('m-d,H:i', time()); ?>"</time> <br>' + message .getContent() + "</div></div> </li>";
+                }, onError: function() {
+                    alert("错误");
+                }
+            })
 					},
 					onError : function(errorCode) {
 						console.log("ERROR CODE:" + errorCode);
@@ -96,7 +102,7 @@
 					console.log(userId + " logined....");
 					logined=true;
 				}
-				alert("成功" + userId);
+				alert("成功登录");
 			},
 			onError : function(errorCode) {
 				alert("连接通讯服务器失败，错误码：" + errorCode + "\n单击确定按钮退出程序！");
@@ -107,13 +113,16 @@
 		ins = RongIMClient.getInstance();
         var c = document.getElementById("content"), s = document.getElementById("send");
         s.onclick = function () {
-            var con = RongIMClient.ConversationType.setValue("3");
-            var target = "1";
+        document.getElementById("new_msg").innerHTML += '<article class="am-comment-flip"> <li> <a href="#link-to-user-home"> <img src="<?php echo $user_image;?>" alt="" class="am-comment-avatar user_head"/> </a> <div class="am-comment-main content_frame"> <div class="am-comment-meta content-detail" style="overflow-y: auto"> <a href="#link-to-user" class="am-comment-author"><?php echo $user_stu_name; ?></a><time datetime="<?php echo time(); ?>" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">"<?php echo date('m-d,H:i', time()); ?>"</time> <br>' + c.value + "</div></div> </li>";
+        var con = RongIMClient.ConversationType.setValue("3");
+        var target = "<?php echo $groupId?>";
             ins.sendMessage(con, target, RongIMClient.TextMessage.obtain(document.getElementById("content").value), null, {
                 onSuccess: function () {
+        //            alert("send successfully");
                     console.log("send successfully");
                     c.value = (c.value * 1 + 1);
                 }, onError: function () {
+         //           alert("send fial");
                     console.log("send fail")
                 }
             });
@@ -124,7 +133,6 @@
 </script>
 
 </head>
-
 
 <body style="width:100%;height:100%;">
 <div id="expImgs" style="width:100%;height:5%;background-color:#ccc;">
@@ -137,9 +145,9 @@
 
 
 <div class="am-scrollable-vertical content_list" >
-    <label id="new_msg">
+    <div id="new_msg">
 
-			</label>
+			</div>
 	</article>
 </div>
 

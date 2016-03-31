@@ -1,0 +1,127 @@
+html{
+	font-family:Microsoft YaHei,Helvitica,Verdana,Tohoma,Arial,san-serif;
+	margin:0;
+	padding: 0;
+	text-decoration: none;
+}
+body{
+	color: #ffffff;
+	background-image: url(../img/01.jpeg);
+	background-size:  100% 100%;
+	min-height: 668px;
+}
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td {
+	margin:0;
+	padding:0;
+}
+img {
+	border:0;
+}
+
+.wx_show{
+	background: rgba(250,250,250,.05);
+	height: 120px;
+	margin: 1px 5px 7px 4px;
+}
+#touxiang{
+	float:left; 
+	width:90px;
+	height: 120px;
+}
+#wx_name{
+	float:left; 
+	margin:40px 5px;
+	background: rgba(250,250,250,.25);
+	height: 30px;
+	max-width: 100%;
+	border-radius: 3px;
+}
+label{
+	padding: 5px 5px;
+	font-size: 1.3rem;
+}
+.am-comment-avatar {
+	margin: 20px 10px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 1px solid transparent;
+}
+@media only screen and (min-width: 641px) {
+	.am-comment-avatar {
+		width: 48px;
+		height: 48px
+	}
+}
+ul {
+	margin-top: 30px;
+width: 100%;
+overflow: hidden;
+list-style: none outside none;
+}
+li {
+display: list-item;
+text-align: -webkit-match-parent;
+width: 33.3%;
+border-radius: 3px;
+float: left;
+font-size: 20px;
+font-family: "copperplate gothic bold";
+border-top:0;
+}
+
+
+.boxes {
+  width: 100%;
+}
+
+.boxes .box {
+  height: 100px;
+  color: #FEFFFE;
+  line-height: 100px;
+  text-align: center;
+  font-weight: bold;
+  transition: all .2s ease;
+}
+
+.boxes .box:hover {
+  font-size: 150%;
+  transform: rotate(360deg);
+}
+
+.box-1 {
+ 	background: rgba(250,250,250,.10);
+}
+
+.box-2 {
+ 	background: rgba(250,250,250,.25);
+}
+
+.box-3 {
+ 	background: rgba(250,250,250,.15);
+}
+
+.box-4 {
+	background: rgba(250,250,250,.25);
+}
+
+.box-5 {
+	background: rgba(250,250,250,.05);
+}
+
+.box-6 {
+	background: rgba(250,250,250,.25);
+}
+
+.box-7 {
+	background: rgba(250,250,250,.10);
+}
+
+.box-8 {
+	background: rgba(250,250,250,.25);
+}
+
+.box-9 {
+	background: rgba(250,250,250,.10);
+}

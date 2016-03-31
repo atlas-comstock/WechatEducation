@@ -54,8 +54,8 @@ class Attendent extends CI_Controller{
 		$this->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
 		$lat = $this->cache->get("Latitude$openid");
 		$lon = $this->cache->get("Longitude$openid");
-		$ci->cache->file->save("Latitude$lesson","$lat",600);
-		$ci->cache->file->save("Longitude$lesson","$lon",600);
+		$this->cache->file->save("Latitude$lesson","$lat",600);
+		$this->cache->file->save("Longitude$lesson","$lon",600);
 	}
 	
 	//学生提交考勤

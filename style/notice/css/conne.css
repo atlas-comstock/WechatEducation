@@ -1,0 +1,22 @@
+
+.head_sp{
+	margin-top: 80px;
+	margin: 80px 5%;
+}
+.res_example{
+	margin-bottom: 30px;
+}
+
+.topic_end{
+	width:100%;
+	/*height: 30%;*/
+	text-align: right;
+	/*background-color: yellow;*/
+}
+.topic_end img{
+	width: 35px;
+}
+.end_other{
+	display: inline;
+	width: 50%;
+}

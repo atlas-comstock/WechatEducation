@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>选择打分学生</title>
+		<link rel="stylesheet" href="css/g_score.css">
+		<script type="text/javascript" src=""></script>
+	</head>
+
+	<body>
+		<div class="cla_select_center">
+		<h1>选择学生</h1>
+		<div class="op">
+			<label>学院：</label>
+			<select name="select">
+				<option value="0">---請選擇---</option>
+				<option value="1">公共卫生学院</option>
+				<option value="2">药科学院</option>
+				<option value="3">医药经贸学院</option>
+				<option value="4">医药信息工程学院</option>
+			</select>
+		</div>
+		<div class="op">
+			<label>班级：</label>
+			<select name="select" class="select_1">
+				<option value="0">---請選擇---</option>
+				<option value="1">计算机科学与技术（医药软件服务外包13）1</option>
+				<option value="2">计算机科学与技术（医药软件服务外包13）2</option>
+				<option value="3">计算机科学与技术（医药软件服务外包14）1</option>
+				<option value="4">计算机科学与技术（医药软件服务外包14）2</option>
+			</select>
+		</div>
+		<div id="search">
+			<input id="class_name" type="text" placeholder="输入姓名或学号的关键字...">
+			<input id="in_search" type="button" value="查询" onclick="location.href=''">
+		</div>
+		<p>请选择需要打分的对象：</p>
+		
+		<div class="cla_select">
+			<div style="" class="c_select">
+				<form action="" method="get">
+					<label>
+						<input name="1" type="radio" value="" />陈伟，1302221245</label>
+					<br />
+					<label>
+						<input name="1" type="radio" value="" />丁一一，13055512121</label>
+					<br />
+					<label>
+						<input name="1" type="radio" value="" />李光辉，1201111234</label>
+					<br />
+				</from>
+			</div>
+		</div>
+		</div>
+		
+		<button type="button" onclick="location.href='c_givscor.html'" class="ssd"> 打分</button>
+	</body>
+
+</html>

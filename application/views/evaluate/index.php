@@ -18,7 +18,7 @@
 			<input id="in_search" type="button" value="搜索" onclick="location.href='selecteacher.html'">
 		</div>
 		<p>请选择需要评价的选项：</p>
-		
+
 		<div class="cla_select">
 			<div style="" class="c_select">
 				<form action="" method="get">
@@ -35,7 +35,7 @@
 			</div>
 		</div>
 		</div>
-		
+
 		<button type="button" onclick="location.href='assessment.html'" class="ssd"> 确定</button>
 	</body>
 

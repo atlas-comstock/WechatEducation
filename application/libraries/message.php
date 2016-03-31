@@ -11,9 +11,9 @@ class Message {
 
     //发送消息核心类start
     public function response($callBack){
-		
+
     	$ci = &get_instance();
-    	
+
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
         if (!empty($postStr)){
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -159,46 +159,61 @@ class Message {
 
     //不同的事件处理流
     public function do_event($event){
+        /* $open_id = $req->FromUserName; */
         switch ($event){
         case 'subscribe':$this->replyText(WELCOME);break;
         case 'unsubscribe':$this->replyText('bye');break;
         case 'location':$this->save_localtion();break;
         case 'click':
+            $req = $this->request;
+            $open_id = $req->FromUserName;
         	$event_key = $this->get_event_key();
-        	switch ($event_key) {
-        		case 'button key':return 'button test';
-        		break;
-        		default:$this->replyText('hello');break;
-        	}
-        break;
-        
+            switch ($event_key) {
+            case 'bind':
+                $url = "http://av.jejeso.com/education/index.php/bind/index/".$open_id;
+                $pic = "http://av.jejeso.com/education/myproject/bind.jpg";
+                $reply_content = "#title|点此绑定个人信息.#url|".$url."#pic|".$pic;
+                $this->reply_news($reply_content);
+                break;
+            case 'home':
+                $url = "http://av.jejeso.com/education/index.php/student_main/index/".$open_id;
+                $pic = "http://av.jejeso.com/education/myproject/index.jpg";
+                $reply_content = "#title|点此进入个人首页.#url|".$url."#pic|".$pic;
+                $this->reply_news($reply_content);
+                break;
+            case 'team': $this->replyText("by geekcreate");
+                break;
+            default:$this->replyText('hello');break;
+            }
+            break;
+
         }
     }
     //事件处理over
-    
+
     //地理位置处理start
     function save_localtion(){
-//     	file_put_contents('log.txt',print_r($this->request->Longitude,true));
-    	$ci = &get_instance();
-    	$usr = $this->request->FromUserName;
-    	$ci->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
-//     	if (!$lon=$ci->cache->get('Longitude')){
-		     $lat=$this->request->Latitude;
-		     $lon=$this->request->Longitude;
-		     $very = "$usr";
-		     $ci->cache->file->save("Latitude$very","$lat",300);
+        //     	file_put_contents('log.txt',print_r($this->request->Longitude,true));
+        $ci = &get_instance();
+        $usr = $this->request->FromUserName;
+        $ci->load->driver('cache', array('adapter' => 'apc', 'backup' => 'file'));
+        //     	if (!$lon=$ci->cache->get('Longitude')){
+        $lat=$this->request->Latitude;
+        $lon=$this->request->Longitude;
+        $very = "$usr";
+        $ci->cache->file->save("Latitude$very","$lat",300);
 		     $ci->cache->file->save("Longitude$very","$lon",300);
 		     /*
-		      * 
+		      *
 			    file_put_contents('log.txt',print_r($ci->cache->get('Longitude'),true));
 		 		$this->replyText($lat.$lon);
-		      * 
+		      *
 		      */
 //     	}
 // 		$this->replyText($ci->cache->get("Longitude$very"));//测试语句
     }
     //地理位置处理over
-    
+
     //音乐处理
     /*
      * 格式 title|{标题}#description|{描述}#murl|{音乐地址}#hqurl|{wifi下音乐地址}

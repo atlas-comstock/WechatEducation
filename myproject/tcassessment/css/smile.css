@@ -1,0 +1,46 @@
+body {
+	/*background: rgba(230,230,250, .55);*/
+	
+	background: no-repeat center;
+	background-size: 100% 100%;
+	min-height: 768px;
+	background-image: -moz-linear-gradient(top, #E6E6FA, #f5f5f5);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#E6E6FA), to(#f5f5f5));
+	filter: progid: DXImageTransform.Microsoft.gradient(startColorstr=#E6E6FA, endColorstr=#f5f5f5);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#E6E6FA,endColorstr=#f5f5f5)";
+}
+#top_line {
+	border-bottom: 3px solid #000;
+}
+#t_show {
+	border-bottom: 3px solid #000;
+	text-decoration: underline;
+}
+.am-circle {
+	background-image: url(../img/6.jpg);
+	border-radius: 50%;
+	color: inherit;
+	word-wrap: break-word;
+	width: 140px;
+	height: 130px;
+	margin-bottom: 10px;
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+}
+h1 {
+	text-align: center;
+}
+#d_zan{
+	text-align: left;
+}
+button{
+	background: rgba(230, 230, 250, .25);
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}

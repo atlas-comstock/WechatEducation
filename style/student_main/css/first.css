@@ -1,0 +1,248 @@
+html {
+	font-family: Microsoft YaHei, Helvitica, Verdana, Tohoma, Arial, san-serif;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+}
+body {
+	color: #ffffff;
+	background: url(http://138.128.207.99/education/style/student_main/img/03.jpg) no-repeat center;
+	background-size: 100% 100%;
+	min-height: 768px;
+}
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td {
+	margin: 0;
+	padding: 0;
+}
+img {
+	border: 0px;
+}
+.wx_show {
+	background: rgba(250, 250, 250, .05);
+	height: 120px;
+	margin: 1px 5px 7px 4px;
+}
+#touxiang {
+	float: left;
+	width: 90px;
+	height: 120px;
+}
+#wx_name {
+	float: left;
+	margin: 40px 5px;
+	background: rgba(250, 250, 250, .25);
+	height: 30px;
+	max-width: 100%;
+	border-radius: 3px;
+}
+label {
+	padding: 5px 5px;
+	font-size: 1.3rem;
+}
+.abc {
+	margin: 20px 10px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 1px solid transparent;
+}
+@media only screen and (min-width: 641px) {
+	.abc {
+		width: 48px;
+		height: 48px
+	}
+}
+ul {
+	list-style: none outside none;
+	margin-top: 15px;
+	/*background: rgba(250,250,250,.10);*/
+}
+a {
+	color: #ffffff;
+	text-decoration: none;
+}
+#cate10 {
+	clear: both;
+}
+#cate10 .catemenu {
+	overflow: hidden;
+	background-color: transparent;
+	border-radius: 4px;
+	margin: 7px 5px 0 4px;
+}
+#cate10 .catemenu ul {
+	width: 100%;
+	overflow: hidden;
+}
+#cate10 .catemenu li {
+	display: list-item;
+	text-align: -webkit-match-parent;
+}
+#cate10 .catemenu li {
+	width: 33.3%;
+	float: left;
+	font-size: 130%;
+	border-top: 0;
+}
+#cate10 .catemenu li:nth-child(n+13) a {
+	padding: 10px 5px;
+	color: #FEFFFE;
+}
+#cate10 .catemenu li:nth-child(n+13) img {
+	display: none
+}
+#cate10 .catemenu a {
+	display: block;
+	border-radius: 3px;
+	margin: 0 0 3px 3px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	padding: 20px 5px 10px;
+	height: 100%;
+	text-align: center;
+}
+#cate10 .catemenu img {
+	width: 55px;
+	height: 55px;
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	top: -5px;
+	vertical-align: middle;
+	border-radius: 3px;
+}
+.am-btn {
+	display: inline-block;
+	margin-bottom: 0;
+	/*padding: 0.625em 1em;*/
+	
+	vertical-align: middle;
+	font-size: 1.6rem;
+	font-weight: normal;
+	line-height: 1.2;
+	text-align: center;
+	white-space: nowrap;
+	background-image: none;
+	border: 1px solid transparent;
+	border-radius: 0;
+	cursor: pointer;
+	outline: 0;
+	-webkit-appearance: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	-webkit-transition: background-color 300ms ease-out, border-color 300ms ease-out;
+	transition: background-color 300ms ease-out, border-color 300ms ease-out;
+}
+.am-btn:focus,
+.am-btn:active:focus {
+	outline: thin dotted;
+	outline: 1px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+.am-btn:hover,
+.am-btn:focus {
+	color: #444444;
+	text-decoration: none;
+}
+.am-btn:active,
+.am-btn.am-active {
+	background-image: none;
+	-webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.15);
+}
+.am-btn-primary {} .am-btn-primary:hover,
+.am-btn-primary:focus {
+	background: rgba(250, 250, 250, .1);
+}
+.am-btn-primary:active {
+	background: rgba(250, 250, 250, .25);
+}
+.am-offcanvas {
+	display: none;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1090;
+	background: rgba(0, 0, 0, 0.15);
+}
+.am-offcanvas.am-active {
+	display: block;
+}
+.am-offcanvas-bar {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 1091;
+	width: 180px;
+	max-width: 100%;
+	background: #333333;
+	overflow-y: auto;
+	/* scrollable */
+	
+	-webkit-overflow-scrolling: touch;
+	/* scrollable */
+	
+	-webkit-transition: -webkit-transform 0.3s ease-in-out;
+	transition: transform 0.3s ease-in-out;
+	-webkit-transform: translateX(-100%);
+	-ms-transform: translateX(-100%);
+	transform: translateX(-100%);
+}
+.am-offcanvas-bar:after {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 1px;
+}
+.am-offcanvas.am-active .am-offcanvas-bar.am-offcanvas-bar-active {
+	-webkit-transform: translateX(0);
+	-ms-transform: translateX(0);
+	transform: translateX(0);
+}
+.am-offcanvas-content {
+	text-align: center;
+	font-family: arial;
+	margin-top: 10px;
+	color: #FEFFFE;
+}
+.am-offcanvas-content a {
+	color: #ccc;
+	text-align: center;
+}
+.bbk p {
+	margin: 30px 10px;
+	width: 80%;
+}

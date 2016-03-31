@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+
+		<title>证书成绩查询</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author" content="">
+
+		<!-- CSS -->
+		<link rel="stylesheet" href="css/b_cet.css">
+
+		<!-- Javascript -->
+		<script src="js/jquery-1.8.2.min.js"></script>
+		<script src="js/supersized.3.2.7.min.js"></script>
+		<script src="js/supersized-init.js"></script>
+		<script src="js/scripts.js"></script>
+		<script type="text/javascript" src="js/berror.js"></script>
+
+	</head>
+
+	<body>
+
+		<div class="page-container">
+			<div>
+				<h1>四六级成绩查询</h1>
+			</div>
+			<form action="" method="post">
+				<input type="text" name="username" class="username" id="User_Number" placeholder="准考证号">
+				<input type="text" name="password" class="password" id="User_Name" placeholder="姓名 ">
+
+				<select name="select ">
+
+					<div class="op_color ">
+
+						<option value="0 ">---請選擇---</option>
+
+						<option value="1 ">CET4</option>
+
+						<option value="2 ">CET6</option>
+
+					</div>
+				</select>
+
+				<a href="c_cet.html">
+					<button type="button" onclick="changePicture() "> 查询</button>
+				</a>
+				<div class="error "><span>+</span>
+				</div>
+			</form>
+		</div>
+		<div class="i_history">
+			<div class="xiahua">
+
+			</div>
+			<a href="">
+				<h4>历史查询：</h4>
+				<li>姓名：黄丽丽</li>
+				<li>准考证号：1234567789</li>
+			</a>
+		</div>
+	</body>
+
+</html>

@@ -1,18 +1,18 @@
 <?php
 class Infor_controller extends CI_Controller{
-	
+
 	function __construct(){
 		parent::__construct();
 		$this->load->model('attendent/attend_model');
 		$this->load->model('infor/infor_model');
 	}
-	
+
 	function index(){
 		$openid=$_REQUEST['openid'];
 		$detail['info']= $this->attend_model->getInfo($openid);
 		$this->load->view('information/information',$detail);
 	}
-	
+
 	function submit_info(){
 		//从前台页面接受传值
 		$data['infor_usr_id']=$_REQUEST['infor_usr_id'];
@@ -28,5 +28,5 @@ class Infor_controller extends CI_Controller{
 		$this->infor_model->submitInfor($data);
 		echo "<script>alert('信息登记完成');history.go(-1); </script>";
 	}
-	
+
 }

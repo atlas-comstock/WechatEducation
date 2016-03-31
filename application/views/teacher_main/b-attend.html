@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+		<title>考勤记录</title>
+		<link rel="stylesheet" href="css/b_most.css" />
+		<link rel="stylesheet" href="css/amazeui.min.css">
+		<link rel="stylesheet" href="css/bbk.css" />
+		<script type="text/javascript" src="assets/js/jquery.min.js"></script>
+		<script type="text/javascript" src="assets/js/amazeui.min.js"></script>
+
+	</head>
+
+	<body>
+		<div class="wx_show">
+			<div id="touxiang">
+				<a href="javascript:void(0);" class="am-btn am-btn-primary" data-am-offcanvas="{target: '#doc-oc-demo2', effect: 'push'}">
+					<img src="img/02.jpg" alt="" class="abc" width="48" height="48">
+				</a>
+			</div>
+			<div id="wx_name">
+				<label id="stu_open_id">用户1_niki</label>
+			</div>
+		</div>
+
+		<!-- 侧边栏内容 -->
+		<div id="doc-oc-demo2" class="am-offcanvas">
+			<div class="am-offcanvas-bar">
+				<div class="am-offcanvas-content">
+					<h1>个人中心</h1>
+					<div class="bbk">
+						<a href="../private/yourself.html"><p>基本信息>></p></a>
+						<a href="../private/collect.html"><p>个人收藏>></p></a>
+						<a href="../private/majors.html"><p>班级信息>></p></a>
+						<a href="../private/advice.html"><p>意见反馈>></p></a>
+						<a href="../private/about.html"><p>关于我们>></p></a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="op">
+			<select name="select">
+				<option value="0">---請選擇查看班级---</option>
+				<option value="1">外包131</option>
+				<option value="2">外包132</option>
+				<option value="3">电子131</option>
+				<option value="4">电信13</option>
+			</select>
+		</div>
+		<table class="am-table am-table-bordered am-table-striped">
+			<thead>
+				<tr>
+					<th style="width:100px">姓名</th>
+					<th style="width:130px">学号</th>
+					<th style="width:90px">出勤次数</th>
+					<th style="width:90px">缺勤次数</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><code>杨妮</code>
+					</td>
+					<td><code>1234567890</code>
+					</td>
+					<td><code>23</code>
+					</td>
+					<td><code>10</code>
+					</td>
+				</tr>
+				<tr>
+					<td><code>杨三三</code>
+					</td>
+					<td><code>2233456780</code>
+					</td>
+					<td><code>3</code>
+					</td>
+					<td><code>20</code>
+					</td>
+				</tr>
+				<tr>
+					<td><code>杨叶叶</code>
+					</td>
+					<td><code>1205551123</code>
+					</td>
+					<td><code>33</code>
+					</td>
+					<td><code>0</code>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,109 @@
+body {
+	color: #0000000;
+	background: rgba(211,211,211, .20);
+	text-align: center;
+}
+h2 {
+	/*background: rgba(0,191,255, .89);*/
+	width: 100%;
+	height: 30px;
+	color: #000000;
+	text-align: center;
+	margin: 0px auto 0 auto;
+}
+p {
+	color: #fa8072;
+}
+.l_tips {
+	text-indent:2em;
+	text-align: left;
+}
+button {
+	cursor: pointer;
+	width: 100%;
+	height: 50px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	background: #00ff99;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;
+	border: 1px solid #00ff99;
+	font-size: 20px;
+	font-weight: 700;
+	color: #fff;
+}
+button:hover {
+	-moz-box-shadow: 0 15px 30px 0 rgba(45, 45, 45, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 15px 30px 0 rgba(45, 45, 45, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	box-shadow: 0 15px 30px 0 rgba(45, 45, 45, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+}
+button:active {
+	-moz-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 15px 30px 0 rgba(255, 255, 255, .15) inset, 0 2px 7px 0 rgba(0, 0, 0, .2);
+	box-shadow: 0 5px 8px 0 rgba(0, 0, 0, .1) inset, 0 1px 4px 0 rgba(0, 0, 0, .1);
+	border: 0px solid #ef4300;
+}
+#i_total {
+	width: 90%;
+	height: 88px;
+	margin-top: 20px;
+	padding: 0 20px;
+	border-radius: 6px;
+	border-color:black ;
+	font-size: 14px;
+	display: block;
+	background: rgba(230, 250, 300, .30);
+}
+#myul {
+	text-align: left;
+	letter-spacing: 0.5px;
+	color: black;
+	display: block;
+}
+ul {
+	list-style-type: none;
+	padding-left: 0;
+}
+li{
+/*	height: 40px;*/
+	
+}
+span{
+	padding-left: 15px;
+	
+}
+input{
+	margin: 0 auto;
+	margin-top: 15px;
+	float: left;
+}
+label{
+	width: 95%;
+	float: left;
+	margin-top: 13px;
+}
+.double{
+	padding: 0 auto;
+	width: auto;
+	height: 40px;
+	padding-left: 30px;
+	margin-left:30px;
+	margin-right: 8px;
+	text-align: left;
+	letter-spacing: 0.5px;
+	width 100%;
+	color: black;
+	background-color:white ;
+	border: 1px solid rgba(192,192,192, .25);
+	display: block;
+}
+.odd{
+	margin-top: 10px;
+	margin-left:15px;
+	margin-bottom: 10px;
+}
+.th{
+	margin-top: 10px;
+}
+

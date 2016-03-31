@@ -1,0 +1,35 @@
+.wx_show{
+	background: rgba(255,245,238,.15);
+	height: 120px;
+	margin: 1px 5px 7px 4px;
+}
+#touxiang{
+	float:left; 
+	width:90px;
+	height: 120px;
+}
+#wx_name{
+	float:left; 
+	margin:40px 5px;
+	background: rgba(255,245,238,.35);
+	height: 30px;
+	max-width: 100%;
+	border-radius: 3px;
+}
+label{
+	padding: 5px 5px;
+	font-size: 1.5rem;
+}
+.adlm {
+	margin: 20px 10px;
+	width: 70px;
+	height: 70px;
+	border-radius: 50%;
+	border: 1px solid transparent;
+}
+@media only screen and (min-width: 641px) {
+	.am-comment-avatar {
+		width: 48px;
+		height: 48px
+	}
+}

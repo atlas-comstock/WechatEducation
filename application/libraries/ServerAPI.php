@@ -26,9 +26,12 @@ class ServerAPI{
      * @param $appSecret
      * @param string $format
      */
-    public function __construct($appKey,$appSecret,$format = 'json'){
+    public function __construct(){
+        $appKey= 'kj7swf8o7csz2';
+        $appSecret='G1KaP0ZPvEdJk';
         $this->appKey = $appKey;
         $this->appSecret = $appSecret;
+        $format = 'json';
         $this->format = $format;
     }
 

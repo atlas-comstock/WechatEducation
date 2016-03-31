@@ -1,0 +1,59 @@
+body{
+	background:url(../img/05.jpg) no-repeat center;
+	background-size:  100% 100%;
+	min-height: 768px;
+	color: #000000;
+	text-align: center;
+	font-family:Helvetica;
+}
+h1 {
+	text-align: center;
+	margin: 80px auto 0 auto;
+}
+label{
+	color: brown;
+	font-weight: 800;
+}
+.w_lin {
+	text-align: center;
+}
+
+#top_line {
+	margin-top: 50px;
+	border-bottom: 3px solid #000;
+}
+#t_show {
+	
+	border-bottom: 3px solid #000;
+	text-decoration: underline;
+	width: 200px;
+	margin: 20px auto;
+	text-align: left;
+}
+li{
+	 line-height:30px;
+}
+.bota{
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	margin-top: 50px;
+	background: #00ff99;
+	border: 1px solid darkgreen;
+	font-size: 18px;
+	font-weight: 800;
+	color: #00000;
+	border-radius: 50%;
+}
+button {
+	cursor: pointer;
+	width: 80px;
+	height: 80px;
+	margin-top: 50px;
+	background: indianred;
+	border: 1px solid dimgray;
+	font-size: 18px;
+	font-weight: 800;
+	color: #00000;
+	border-radius: 50%;
+}

@@ -11,21 +11,21 @@ $ci = &get_instance();
 define("MENU",$ci->config->item('MENU'));
 
 class Request{
-	
+
 	public $wc;
 	public $to;
 	public $from;
 	public $ci;
 	public $baseurl;
-	
+
 	function __construct($wechat){
-		$this->ci = &get_instance();	
+		$this->ci = &get_instance();
 		$this->wc = $wechat[1];
 		$this->from = $this->wc->FromUserName;
 		$this->to = $this->wc->ToUserName;
 		$this->baseurl = $this->ci->config->item('base_url');
 	}
-	
+
 	//处理用户指令请求
 	function do_request($content){
 		if ($content=='test') return '这里是测试框架';
@@ -34,23 +34,23 @@ class Request{
 		if ($content=='交流') return "$this->baseurl/index.php/communication/comm/index?openid=$this->from";
 		return $this->tulingResponse($content);//无匹配则调用图灵回复
 	}
-	
+
 	function clear(){
 		$this->ci->load->driver('cache');
 		$this->ci->cache->clean();
 	}
-	
+
 	//机器人回复
 	function tulingResponse($content){
-		
+
 		$url = 'http://www.tuling123.com/openapi/api?key=2de48f93cfa6fb3fff1c0ede2ac8b953&info=' . $content;
 		$json = file_get_contents($url);
 		$arr = json_decode($json);
-		$content = $arr->text;	
+		$content = $arr->text;
 		if(!$content){
 			$content = "你说的话太深奥了，教我如何答你好呢？\n";
 		}
 		return $content;
 	}
 }
-?> 
+?>

@@ -16,7 +16,7 @@
 | environments.
 |
 */
-$config['base_url'] = 'http://138.128.207.99/education';
+$config['base_url'] = 'http://av.jejeso.com/education/';
 
 /*
 |--------------------------------------------------------------------------
